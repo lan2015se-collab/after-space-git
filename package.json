@@ -8,9 +8,15 @@
   "scripts": {
     "build": "electron-builder --win nsis",
     "dist": "electron-builder --win nsis",
-    "start": "electron ."
+    "start": "electron .",
+    "prepare:mobile": "powershell -ExecutionPolicy Bypass -File scripts/prepare-mobile.ps1",
+    "android:sync": "npm run prepare:mobile && npx cap sync android",
+    "android:apk": "npm run android:sync && powershell -ExecutionPolicy Bypass -File scripts/build-android.ps1"
   },
   "dependencies": {
+    "@capacitor/android": "^8.3.0",
+    "@capacitor/cli": "^8.3.0",
+    "@capacitor/core": "^8.3.0",
     "three": "^0.180.0"
   },
   "devDependencies": {
@@ -31,6 +37,7 @@
       "*.css",
       "assets/**/*",
       "build/**/*",
+      "vendor/**/*",
       "node_modules/three/**/*"
     ],
     "icon": "build/app-icon.ico",

@@ -1,0 +1,9 @@
+{
+  "appId": "com.afterspace.mobile",
+  "appName": "AFTER SPACE",
+  "webDir": "mobile-web",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  }
+}

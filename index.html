@@ -2,7 +2,12 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>AFTER SPACE</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -16,7 +21,15 @@
           <div class="boot-core"></div>
           <p class="boot-kicker">AFTER SPACE</p>
           <h2>進入軌道中</h2>
-          <p>正在載入超大型方塊世界與生存系統</p>
+          <p>正在載入超大型方塊世界、生存系統與搶先體驗內容。</p>
+        </div>
+      </div>
+
+      <div id="rotate-overlay" class="rotate-overlay hidden">
+        <div class="rotate-card panel">
+          <p class="eyebrow">MOBILE</p>
+          <h2>請將手機橫放</h2>
+          <p>AFTER SPACE 手機版固定橫向遊玩，橫放後即可進入世界。</p>
         </div>
       </div>
 
@@ -26,7 +39,7 @@
             <p class="eyebrow" id="program-name">AFTER SPACE Frontier Program</p>
             <h1 id="main-title">歡迎來到 AFTER SPACE</h1>
             <p id="main-subtitle" class="lead">
-              註冊帳號後，進入超大型方塊世界。白天採集、夜晚生存、自由建造，並用滑鼠與方向鍵操控整個世界。
+              註冊帳號後，進入超大型方塊世界。白天採集、夜晚生存、自由建造，並用滑鼠或觸控操控整個世界。
             </p>
             <div class="feature-grid">
               <article class="feature-card">
@@ -159,7 +172,7 @@
         <section id="build-menu-panel" class="build-menu-panel panel">
           <div class="overlay-header">
             <div>
-              <p class="eyebrow" id="build-menu-label">建造選單</p>
+              <p class="eyebrow" id="build-menu-label">物品箱</p>
               <h3 id="build-menu-title">全部物品</h3>
             </div>
           </div>
@@ -183,6 +196,32 @@
         </div>
 
         <div id="build-bar" class="build-bar panel"></div>
+
+        <div id="mobile-controls" class="mobile-controls hidden">
+          <div class="mobile-top-actions">
+            <button id="mobile-camera-button" class="mobile-mini-btn" type="button">視角</button>
+            <button id="mobile-bag-button" class="mobile-mini-btn" type="button">物品</button>
+          </div>
+          <div class="mobile-bottom">
+            <div class="touch-cluster">
+              <div class="touch-label">移動</div>
+              <div id="move-pad" class="touch-pad">
+                <div id="move-stick" class="touch-stick"></div>
+              </div>
+            </div>
+            <div class="mobile-action-cluster">
+              <button id="mobile-jump-button" class="mobile-action-btn" type="button">跳躍</button>
+              <button id="mobile-attack-button" class="mobile-action-btn" type="button">攻擊</button>
+              <button id="mobile-place-button" class="mobile-action-btn" type="button">放置</button>
+            </div>
+            <div class="touch-cluster">
+              <div class="touch-label">視角</div>
+              <div id="look-pad" class="touch-pad look-pad">
+                <div class="look-pad-ring"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
 

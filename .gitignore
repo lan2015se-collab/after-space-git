@@ -6,3 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 Thumbs.db
+mobile-web/
+android/.gradle/
+android/build/
+android/local.properties
+android/app/build/
+android/capacitor-cordova-android-plugins/build/

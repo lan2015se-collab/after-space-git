@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AFTER SPACE</string>
+    <string name="title_activity_main">AFTER SPACE</string>
+    <string name="package_name">com.afterspace.mobile</string>
+    <string name="custom_url_scheme">com.afterspace.mobile</string>
+</resources>

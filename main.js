@@ -45,10 +45,8 @@ function createMainWindow() {
 
   mainWindow.loadFile(path.join(__dirname, "index.html"));
   mainWindow.once("ready-to-show", () => {
-    setTimeout(() => {
-      if (splashWindow && !splashWindow.isDestroyed()) splashWindow.close();
-      mainWindow.show();
-    }, 1000);
+    if (splashWindow && !splashWindow.isDestroyed()) splashWindow.close();
+    mainWindow.show();
   });
 }
 

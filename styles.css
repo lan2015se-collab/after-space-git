@@ -58,6 +58,21 @@ body::before {
   pointer-events: none;
 }
 
+.rotate-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 35;
+  background: rgba(3, 10, 18, 0.92);
+}
+
+.rotate-card {
+  width: min(360px, calc(100vw - 40px));
+  padding: 28px 24px;
+  text-align: center;
+}
+
 .boot-card {
   position: relative;
   width: min(420px, calc(100vw - 40px));
@@ -414,6 +429,113 @@ input[type="text"], input[type="password"] {
   font-size: 1rem;
 }
 
+.mobile-controls {
+  position: absolute;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.mobile-top-actions {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0px) + 18px);
+  right: calc(env(safe-area-inset-right, 0px) + 18px);
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.mobile-mini-btn,
+.mobile-action-btn {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(8, 18, 31, 0.76);
+  color: var(--text);
+  font-family: var(--font-ui);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.26);
+}
+
+.mobile-mini-btn {
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+
+.mobile-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.touch-cluster {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.touch-label {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(8, 18, 31, 0.66);
+  color: var(--soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+.touch-pad {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(123, 223, 255, 0.22), rgba(123, 223, 255, 0.05) 58%, rgba(255,255,255,0.03) 70%),
+    rgba(8, 18, 31, 0.52);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: inset 0 0 22px rgba(255,255,255,0.05), 0 18px 40px rgba(0,0,0,0.22);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.touch-stick,
+.look-pad-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.touch-stick {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.42), rgba(123,223,255,0.24));
+  box-shadow: 0 8px 20px rgba(0,0,0,0.24);
+}
+
+.look-pad-ring {
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgba(255,255,255,0.24);
+}
+
+.mobile-action-cluster {
+  display: grid;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.mobile-action-btn {
+  min-width: 108px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 1rem;
+}
+
 .build-bar {
   left: 50%;
   bottom: 20px;
@@ -473,4 +595,54 @@ input[type="text"], input[type="password"] {
   }
 
   .reticle { bottom: 116px; }
+}
+
+@media (pointer: coarse), (max-width: 900px) {
+  .controls,
+  .crosshair {
+    display: none;
+  }
+
+  .mobile-controls {
+    display: block;
+  }
+
+  .action-buttons {
+    right: 18px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 190px);
+    flex-direction: column;
+  }
+
+  .build-menu-panel {
+    width: 240px;
+    top: 112px;
+  }
+
+  .overlay-panel {
+    width: min(340px, calc(100vw - 24px));
+    right: 12px;
+    bottom: 220px;
+  }
+
+  .build-bar {
+    width: calc(100vw - 24px);
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+  }
+
+  .status-strip {
+    bottom: 230px;
+    width: min(340px, calc(100vw - 24px));
+  }
+
+  .reticle {
+    bottom: 210px;
+  }
+}
+
+@media (orientation: portrait) and (pointer: coarse) {
+  .rotate-overlay.hidden {
+    display: grid !important;
+    visibility: visible;
+    opacity: 1;
+  }
 }
