@@ -21,7 +21,7 @@
           <div class="boot-core"></div>
           <p class="boot-kicker">AFTER SPACE</p>
           <h2>進入軌道中</h2>
-          <p>正在載入超大型方塊世界、生存系統與搶先體驗內容。</p>
+          <p>正在載入超大型方塊世界、生存系統、手機介面與搶先體驗內容。</p>
         </div>
       </div>
 
@@ -39,23 +39,23 @@
             <p class="eyebrow" id="program-name">AFTER SPACE Frontier Program</p>
             <h1 id="main-title">歡迎來到 AFTER SPACE</h1>
             <p id="main-subtitle" class="lead">
-              註冊帳號後，進入超大型方塊世界。白天採集、夜晚生存、自由建造，並用滑鼠或觸控操控整個世界。
+              註冊帳號後，進入超大型方塊世界。白天採集、夜晚生存、自由建造，桌機使用滑鼠與方向鍵，手機使用滑動與觸控操作。
             </p>
             <div class="feature-grid">
               <article class="feature-card">
                 <span>01</span>
                 <h2 id="feature-1-title">超大型地圖</h2>
-                <p id="feature-1-body">世界採用近距離載入，保留大地圖感，同時避免一次渲染全部方塊造成卡頓。</p>
+                <p id="feature-1-body">世界採用區塊載入，保留大地圖感，同時減少一次渲染過多方塊造成的卡頓。</p>
               </article>
               <article class="feature-card">
                 <span>02</span>
                 <h2 id="feature-2-title">建造與戰鬥</h2>
-                <p id="feature-2-body">左側建造選單、底部快捷欄、獨立劍按鈕與物品箱按鈕都保留下來。</p>
+                <p id="feature-2-body">獨立劍按鈕、物品箱、建造清單與快捷欄都保留下來，手機版也有完整觸控操作。</p>
               </article>
               <article class="feature-card">
                 <span>03</span>
                 <h2 id="feature-3-title">帳號與世界</h2>
-                <p id="feature-3-body">帳號會被記住，多世界存檔獨立保存，除非你主動註銷才會清除帳號。</p>
+                <p id="feature-3-body">帳號會被記住，多世界存檔獨立保存，只有主動註銷才會清除帳號。</p>
               </article>
             </div>
           </section>
@@ -112,6 +112,10 @@
               <label class="setting-row">
                 <span id="camera-label">預設第三人稱</span>
                 <input id="third-person-toggle" type="checkbox" checked />
+              </label>
+              <label class="setting-row">
+                <span id="performance-label">手機效能模式</span>
+                <input id="performance-mode-toggle" type="checkbox" checked />
               </label>
               <p id="caps-note" class="caps-note">按下 Caps Lock 可切換繁體中文 / English。</p>
             </div>
@@ -172,8 +176,8 @@
         <section id="build-menu-panel" class="build-menu-panel panel">
           <div class="overlay-header">
             <div>
-              <p class="eyebrow" id="build-menu-label">物品箱</p>
-              <h3 id="build-menu-title">全部物品</h3>
+              <p class="eyebrow" id="build-menu-label">建造清單</p>
+              <h3 id="build-menu-title">可建造方塊</h3>
             </div>
           </div>
           <div id="build-menu-grid" class="item-grid"></div>
@@ -198,10 +202,41 @@
         <div id="build-bar" class="build-bar panel"></div>
 
         <div id="mobile-controls" class="mobile-controls hidden">
-          <div class="mobile-top-actions">
-            <button id="mobile-camera-button" class="mobile-mini-btn" type="button">視角</button>
-            <button id="mobile-bag-button" class="mobile-mini-btn" type="button">物品</button>
+          <div class="mobile-hud-top">
+            <div class="mobile-chip">
+              <span id="mobile-world-chip">第一世界</span>
+              <strong id="mobile-day-chip">第 1 天</strong>
+            </div>
+            <div class="mobile-mini-actions">
+              <button id="mobile-camera-button" class="mobile-mini-btn" type="button">視角</button>
+              <button id="mobile-performance-button" class="mobile-mini-btn" type="button">效能</button>
+              <button id="mobile-bag-button" class="mobile-mini-btn" type="button">物品</button>
+            </div>
           </div>
+
+          <div class="mobile-bars">
+            <div class="mobile-bar"><label>HP</label><div class="meter"><div id="mobile-health-fill" class="meter-fill health-fill"></div></div></div>
+            <div class="mobile-bar"><label>EN</label><div class="meter"><div id="mobile-energy-fill" class="meter-fill energy-fill"></div></div></div>
+          </div>
+
+          <div id="mobile-build-sheet" class="mobile-build-sheet hidden">
+            <div class="mobile-sheet-handle"></div>
+            <div class="mobile-sheet-header">
+              <div>
+                <p class="eyebrow">BUILD</p>
+                <h3 id="mobile-build-title">建造選單</h3>
+              </div>
+              <button id="mobile-build-close" class="icon-btn" type="button">×</button>
+            </div>
+            <div class="mobile-build-tabs">
+              <button class="mobile-tab active" data-group="terrain" type="button">地形</button>
+              <button class="mobile-tab" data-group="nature" type="button">自然</button>
+              <button class="mobile-tab" data-group="city" type="button">建材</button>
+              <button class="mobile-tab" data-group="rare" type="button">稀有</button>
+            </div>
+            <div id="mobile-build-grid" class="mobile-build-grid"></div>
+          </div>
+
           <div class="mobile-bottom">
             <div class="touch-cluster">
               <div class="touch-label">移動</div>
@@ -209,15 +244,26 @@
                 <div id="move-stick" class="touch-stick"></div>
               </div>
             </div>
-            <div class="mobile-action-cluster">
-              <button id="mobile-jump-button" class="mobile-action-btn" type="button">跳躍</button>
-              <button id="mobile-attack-button" class="mobile-action-btn" type="button">攻擊</button>
-              <button id="mobile-place-button" class="mobile-action-btn" type="button">放置</button>
+
+            <div class="mobile-center-actions">
+              <div class="mobile-hotbar-frame">
+                <div id="mobile-build-ribbon" class="mobile-build-ribbon"></div>
+              </div>
+              <div class="mobile-action-row">
+                <button id="mobile-build-toggle" class="mobile-pill-btn" type="button">建造</button>
+                <button id="mobile-sword-button" class="mobile-pill-btn" type="button">劍</button>
+                <button id="mobile-jump-button" class="mobile-pill-btn" type="button">跳躍</button>
+              </div>
             </div>
+
             <div class="touch-cluster">
               <div class="touch-label">視角</div>
               <div id="look-pad" class="touch-pad look-pad">
                 <div class="look-pad-ring"></div>
+              </div>
+              <div class="mobile-action-cluster">
+                <button id="mobile-attack-button" class="mobile-action-btn" type="button">攻擊</button>
+                <button id="mobile-place-button" class="mobile-action-btn" type="button">放置</button>
               </div>
             </div>
           </div>

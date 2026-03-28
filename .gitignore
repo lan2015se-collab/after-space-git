@@ -12,3 +12,7 @@ android/build/
 android/local.properties
 android/app/build/
 android/capacitor-cordova-android-plugins/build/
+android/keystore.properties
+build/android-release.jks
+android/app/after-space-release.jks
+android/*.tmp

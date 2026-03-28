@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AFTER SPACE 官方網站</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <div class="brand">AFTER SPACE</div>
+        <div class="nav-links">
+          <a href="#about">介紹</a>
+          <a href="#how-to-play">怎麼玩</a>
+          <a href="#early-access">搶先體驗</a>
+          <a href="#updates">版本更新</a>
+        </div>
+      </nav>
+
+      <section class="hero-body">
+        <div>
+          <p class="eyebrow">OFFICIAL SITE</p>
+          <h1>AFTER SPACE 官方網站</h1>
+          <p class="lead">超大型方塊世界、生存、建造、夜晚戰鬥，以及持續更新的搶先體驗版本，現在可以直接下載遊玩。</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#early-access">前往搶先體驗</a>
+            <a class="secondary-btn" href="#how-to-play">查看玩法</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <span class="pill">最新版本 <strong id="hero-version">1.4.0</strong></span>
+          <h2>依照你的裝置推薦下載</h2>
+          <p id="device-copy">正在識別裝置類型，準備最適合的安裝檔案。</p>
+          <a id="hero-download" class="primary-btn full" href="#">下載安裝檔</a>
+          <p class="fine-print">Windows 會提供 EXE 安裝程式，Android 會提供正式簽名 APK。</p>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="about" class="section">
+        <div class="section-head">
+          <p class="eyebrow">ABOUT</p>
+          <h2>遊戲介紹</h2>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>超大型地圖</h3>
+            <p>世界採用區塊載入與大型方塊地形生成，維持超大地圖體感，同時降低卡頓。</p>
+          </article>
+          <article class="card">
+            <h3>Roblox 風格手機 HUD</h3>
+            <p>手機版加入上方資訊晶片、底部快捷欄、建造面板與觸控操作，更接近 Roblox 建造遊戲感。</p>
+          </article>
+          <article class="card">
+            <h3>正式安裝版本</h3>
+            <p>這一版同時提供 Windows 安裝程式與正式簽名 Android APK，網站會自動識別裝置推薦下載。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how-to-play" class="section alt">
+        <div class="section-head">
+          <p class="eyebrow">HOW TO PLAY</p>
+          <h2>怎麼玩</h2>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Windows 操作</h3>
+            <ul>
+              <li>方向鍵移動</li>
+              <li>Space 跳躍</li>
+              <li>Shift 衝刺</li>
+              <li>左鍵揮劍或挖掘</li>
+              <li>右鍵放置方塊</li>
+              <li>V 切換第一 / 第三人稱</li>
+              <li>I 開啟物品箱</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Android 操作</h3>
+            <ul>
+              <li>手機版固定橫向畫面</li>
+              <li>左下滑動區控制移動</li>
+              <li>右下滑動區控制視角</li>
+              <li>中央快捷欄與建造按鈕切換可建造物</li>
+              <li>右側按鈕可攻擊與放置</li>
+              <li>上方按鈕可切換視角、效能模式與打開物品箱</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="early-access" class="section">
+        <div class="section-head">
+          <p class="eyebrow">EARLY ACCESS</p>
+          <h2>搶先體驗下載</h2>
+        </div>
+        <div class="download-layout">
+          <article class="download-card highlight">
+            <span class="pill">推薦下載</span>
+            <h3 id="download-title">正在為你的裝置選擇版本</h3>
+            <p id="download-description">網站會自動判斷你目前的裝置，優先推薦對應的安裝檔。</p>
+            <a id="download-button" class="primary-btn full" href="#">下載安裝檔</a>
+            <p id="download-note" class="fine-print"></p>
+          </article>
+
+          <article class="download-card">
+            <h3>Windows 安裝程式</h3>
+            <p>適合桌機與筆電，提供完整 EXE 安裝流程。</p>
+            <a id="windows-link" class="secondary-btn full" href="#">下載 Windows EXE</a>
+          </article>
+
+          <article class="download-card">
+            <h3>Android 簽名 APK</h3>
+            <p>適合 Android 手機與平板，提供正式簽名 release APK。</p>
+            <a id="android-link" class="secondary-btn full" href="#">下載 Android APK</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="updates" class="section alt">
+        <div class="section-head">
+          <p class="eyebrow">UPDATES</p>
+          <h2>版本更新規則</h2>
+        </div>
+        <div class="card">
+          <p>每次版本升級時，會同步更新 Windows 安裝程式、Android APK、官方網站版本號與下載按鈕。</p>
+          <ol>
+            <li>重新打包 Windows EXE 與正式簽名 Android APK。</li>
+            <li>更新 GitHub Release 與網站中的下載連結。</li>
+            <li>GitHub Pages 網站自動對應最新公開下載版本。</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
