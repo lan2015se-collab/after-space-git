@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AFTER SPACE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <canvas id="game-canvas"></canvas>
+
+      <section id="menu-screen" class="menu-screen">
+        <div class="menu-layout">
+          <section class="hero panel">
+            <p class="eyebrow" id="program-name">AFTER SPACE Frontier Program</p>
+            <h1 id="main-title">歡迎來到 AFTER SPACE</h1>
+            <p id="main-subtitle" class="lead">超大型方塊世界、白天黑夜、生存建造與怪物戰鬥，現在全部整合在一起。</p>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <span>01</span>
+                <h2 id="feature-1-title">超大地圖</h2>
+                <p id="feature-1-body">世界比之前大很多，而且保留方塊感，不再像地形噪聲糊成一片。</p>
+              </article>
+              <article class="feature-card">
+                <span>02</span>
+                <h2 id="feature-2-title">建造欄</h2>
+                <p id="feature-2-body">底部建造欄改成 Roblox 建造遊戲風格，快速切換可放置物品。</p>
+              </article>
+              <article class="feature-card">
+                <span>03</span>
+                <h2 id="feature-3-title">帳號記住</h2>
+                <p id="feature-3-body">註冊後會長期記住帳號，除非你按下註銷帳號，不然不會自動登出。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="side panel">
+            <div id="register-panel">
+              <p class="eyebrow" id="register-label">建立帳號</p>
+              <h2 id="register-title">註冊艙門</h2>
+              <form id="register-form" class="stack-form">
+                <label>
+                  <span id="username-label">使用者名稱</span>
+                  <input id="username" name="username" type="text" maxlength="18" required />
+                </label>
+                <label>
+                  <span id="password-label">密碼</span>
+                  <input id="password" name="password" type="password" maxlength="32" required />
+                </label>
+                <button id="register-button" class="primary-btn" type="submit">註冊並記住帳號</button>
+              </form>
+            </div>
+
+            <div id="account-panel" class="hidden">
+              <p class="eyebrow" id="signed-in-label">已登入帳號</p>
+              <h2 id="account-name">Explorer</h2>
+              <div class="world-list">
+                <button class="world-btn active" data-world="world-1" type="button">世界一號</button>
+                <button class="world-btn" data-world="world-2" type="button">世界二號</button>
+                <button class="world-btn" data-world="world-3" type="button">世界三號</button>
+              </div>
+              <div class="menu-actions">
+                <button id="play-button" class="primary-btn" type="button">進入世界</button>
+                <button id="settings-button" class="secondary-btn" type="button">設定</button>
+                <button id="logout-button" class="secondary-btn danger-btn" type="button">註銷帳號</button>
+              </div>
+            </div>
+
+            <div id="settings-panel" class="settings-panel hidden">
+              <div class="settings-header">
+                <div>
+                  <p class="eyebrow" id="settings-label">設定頁</p>
+                  <h3 id="settings-title">控制中心</h3>
+                </div>
+                <button id="close-settings" class="icon-btn" type="button">×</button>
+              </div>
+
+              <label class="setting-row">
+                <span id="music-label">背景音樂</span>
+                <input id="music-enabled" type="checkbox" checked />
+              </label>
+              <label class="setting-row">
+                <span id="volume-label">音量</span>
+                <input id="music-volume" type="range" min="0" max="100" value="35" />
+              </label>
+              <label class="setting-row">
+                <span id="camera-label">預設第三人稱</span>
+                <input id="third-person-toggle" type="checkbox" checked />
+              </label>
+              <p id="caps-note" class="caps-note">按下 Caps Lock 可以切換繁體中文與英文。</p>
+            </div>
+
+            <p id="menu-message" class="menu-message"></p>
+          </section>
+        </div>
+      </section>
+
+      <section id="hud" class="hud hidden">
+        <div class="topbar panel">
+          <div>
+            <p class="hud-label" id="player-label">玩家</p>
+            <strong id="player-name">Explorer</strong>
+          </div>
+          <div>
+            <p class="hud-label" id="world-label">世界</p>
+            <strong id="world-name">世界一號</strong>
+          </div>
+          <div>
+            <p class="hud-label" id="time-label-text">時間</p>
+            <strong id="time-label">第 1 天 06:00</strong>
+          </div>
+          <div>
+            <p class="hud-label" id="status-label-text">狀態</p>
+            <strong id="status-label">平靜</strong>
+          </div>
+        </div>
+
+        <div class="controls panel">
+          <p id="control-1">方向鍵移動</p>
+          <p id="control-2">Space 跳躍</p>
+          <p id="control-3">Shift 衝刺</p>
+          <p id="control-4">左鍵 攻擊或挖掘</p>
+          <p id="control-5">右鍵 放置方塊</p>
+          <p id="control-6">V 切換第一 / 第三人稱</p>
+          <p id="control-7">I 開啟物品箱</p>
+        </div>
+
+        <div class="status-strip panel">
+          <div class="bar-row">
+            <span id="health-text">生命</span>
+            <div class="meter"><div id="health-fill" class="meter-fill health-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <span id="energy-text">體力</span>
+            <div class="meter"><div id="energy-fill" class="meter-fill energy-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <span id="threat-text">威脅</span>
+            <div class="meter"><div id="threat-fill" class="meter-fill threat-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="crosshair"></div>
+        <div id="reticle" class="reticle panel">準備完成</div>
+
+        <section id="build-menu-panel" class="build-menu-panel panel">
+          <div class="overlay-header">
+            <div>
+              <p class="eyebrow" id="build-menu-label">建造選單</p>
+              <h3 id="build-menu-title">可建造物件</h3>
+            </div>
+          </div>
+          <div id="build-menu-grid" class="item-grid"></div>
+        </section>
+
+        <section id="all-items-panel" class="overlay-panel panel hidden">
+          <div class="overlay-header">
+            <div>
+              <p class="eyebrow" id="all-items-label">物品箱</p>
+              <h3 id="all-items-title">所有物品</h3>
+            </div>
+            <button id="close-items" class="icon-btn" type="button">×</button>
+          </div>
+          <div id="all-items-grid" class="item-grid"></div>
+        </section>
+
+        <div class="action-buttons">
+          <button id="sword-button" class="action-btn">劍</button>
+          <button id="items-button" class="action-btn">物品箱</button>
+        </div>
+
+        <div id="build-bar" class="build-bar panel"></div>
+      </section>
+    </div>
+
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
