@@ -1,12 +1,14 @@
 {
   "name": "after-space",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "AFTER SPACE installer build source",
   "main": "main.js",
   "author": "Codex",
   "license": "MIT",
   "scripts": {
-    "build": "electron-builder --win nsis"
+    "build": "electron-builder --win nsis",
+    "dist": "electron-builder --win nsis",
+    "start": "electron ."
   },
   "dependencies": {
     "three": "^0.180.0"
@@ -26,6 +28,7 @@
       "*.js",
       "*.html",
       "*.css",
+      "assets/**/*",
       "node_modules/three/**/*"
     ],
     "win": {

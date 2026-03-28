@@ -15,30 +15,32 @@
           <section class="hero panel">
             <p class="eyebrow" id="program-name">AFTER SPACE Frontier Program</p>
             <h1 id="main-title">歡迎來到 AFTER SPACE</h1>
-            <p id="main-subtitle" class="lead">超大型方塊世界、白天黑夜、生存建造與怪物戰鬥，現在全部整合在一起。</p>
+            <p id="main-subtitle" class="lead">
+              註冊帳號後，進入超大型方塊世界。白天採集、夜晚生存、自由建造，並用滑鼠與方向鍵操控整個世界。
+            </p>
             <div class="feature-grid">
               <article class="feature-card">
                 <span>01</span>
-                <h2 id="feature-1-title">超大地圖</h2>
-                <p id="feature-1-body">世界比之前大很多，而且保留方塊感，不再像地形噪聲糊成一片。</p>
+                <h2 id="feature-1-title">超大型地圖</h2>
+                <p id="feature-1-body">世界採用近距離載入，保留大地圖感，同時避免一次渲染全部方塊造成卡頓。</p>
               </article>
               <article class="feature-card">
                 <span>02</span>
-                <h2 id="feature-2-title">建造欄</h2>
-                <p id="feature-2-body">底部建造欄改成 Roblox 建造遊戲風格，快速切換可放置物品。</p>
+                <h2 id="feature-2-title">建造與戰鬥</h2>
+                <p id="feature-2-body">左側建造選單、底部快捷欄、獨立劍按鈕與物品箱按鈕都保留下來。</p>
               </article>
               <article class="feature-card">
                 <span>03</span>
-                <h2 id="feature-3-title">帳號記住</h2>
-                <p id="feature-3-body">註冊後會長期記住帳號，除非你按下註銷帳號，不然不會自動登出。</p>
+                <h2 id="feature-3-title">帳號與世界</h2>
+                <p id="feature-3-body">帳號會被記住，多世界存檔獨立保存，除非你主動註銷才會清除帳號。</p>
               </article>
             </div>
           </section>
 
           <section class="side panel">
             <div id="register-panel">
-              <p class="eyebrow" id="register-label">建立帳號</p>
-              <h2 id="register-title">註冊艙門</h2>
+              <p class="eyebrow" id="register-label">帳號註冊</p>
+              <h2 id="register-title">請先註冊帳號</h2>
               <form id="register-form" class="stack-form">
                 <label>
                   <span id="username-label">使用者名稱</span>
@@ -56,9 +58,9 @@
               <p class="eyebrow" id="signed-in-label">已登入帳號</p>
               <h2 id="account-name">Explorer</h2>
               <div class="world-list">
-                <button class="world-btn active" data-world="world-1" type="button">世界一號</button>
-                <button class="world-btn" data-world="world-2" type="button">世界二號</button>
-                <button class="world-btn" data-world="world-3" type="button">世界三號</button>
+                <button class="world-btn active" data-world="world-1" type="button">第一世界</button>
+                <button class="world-btn" data-world="world-2" type="button">第二世界</button>
+                <button class="world-btn" data-world="world-3" type="button">第三世界</button>
               </div>
               <div class="menu-actions">
                 <button id="play-button" class="primary-btn" type="button">進入世界</button>
@@ -70,8 +72,8 @@
             <div id="settings-panel" class="settings-panel hidden">
               <div class="settings-header">
                 <div>
-                  <p class="eyebrow" id="settings-label">設定頁</p>
-                  <h3 id="settings-title">控制中心</h3>
+                  <p class="eyebrow" id="settings-label">設定</p>
+                  <h3 id="settings-title">遊戲設定</h3>
                 </div>
                 <button id="close-settings" class="icon-btn" type="button">×</button>
               </div>
@@ -82,13 +84,13 @@
               </label>
               <label class="setting-row">
                 <span id="volume-label">音量</span>
-                <input id="music-volume" type="range" min="0" max="100" value="35" />
+                <input id="music-volume" type="range" min="0" max="100" value="18" />
               </label>
               <label class="setting-row">
                 <span id="camera-label">預設第三人稱</span>
                 <input id="third-person-toggle" type="checkbox" checked />
               </label>
-              <p id="caps-note" class="caps-note">按下 Caps Lock 可以切換繁體中文與英文。</p>
+              <p id="caps-note" class="caps-note">按下 Caps Lock 可切換繁體中文 / English。</p>
             </div>
 
             <p id="menu-message" class="menu-message"></p>
@@ -104,7 +106,7 @@
           </div>
           <div>
             <p class="hud-label" id="world-label">世界</p>
-            <strong id="world-name">世界一號</strong>
+            <strong id="world-name">第一世界</strong>
           </div>
           <div>
             <p class="hud-label" id="time-label-text">時間</p>
@@ -112,23 +114,23 @@
           </div>
           <div>
             <p class="hud-label" id="status-label-text">狀態</p>
-            <strong id="status-label">平靜</strong>
+            <strong id="status-label">安全</strong>
           </div>
         </div>
 
         <div class="controls panel">
-          <p id="control-1">方向鍵移動</p>
-          <p id="control-2">Space 跳躍</p>
-          <p id="control-3">Shift 衝刺</p>
-          <p id="control-4">左鍵 攻擊或挖掘</p>
-          <p id="control-5">右鍵 放置方塊</p>
-          <p id="control-6">V 切換第一 / 第三人稱</p>
-          <p id="control-7">I 開啟物品箱</p>
+          <p>方向鍵移動</p>
+          <p>Space 跳躍</p>
+          <p>Shift 衝刺</p>
+          <p>左鍵揮劍或挖掘</p>
+          <p>右鍵放置方塊</p>
+          <p>V 切換第一 / 第三人稱</p>
+          <p>I 開啟物品箱</p>
         </div>
 
         <div class="status-strip panel">
           <div class="bar-row">
-            <span id="health-text">生命</span>
+            <span id="health-text">生命值</span>
             <div class="meter"><div id="health-fill" class="meter-fill health-fill"></div></div>
           </div>
           <div class="bar-row">
@@ -158,7 +160,7 @@
           <div class="overlay-header">
             <div>
               <p class="eyebrow" id="all-items-label">物品箱</p>
-              <h3 id="all-items-title">所有物品</h3>
+              <h3 id="all-items-title">全部物品</h3>
             </div>
             <button id="close-items" class="icon-btn" type="button">×</button>
           </div>
