@@ -50,8 +50,8 @@ npm run build
 
 ```powershell
 git add .
-git commit -m "Release 1.2.0"
-git tag v1.2.0
+git commit -m "Release 1.3.0"
+git tag v1.3.0
 git push origin main --tags
 ```
 
@@ -65,4 +65,4 @@ git push origin main --tags
 
 ## 目前版本
 
-目前倉庫整理版本為 `1.2.0`。
+目前倉庫整理版本為 `1.3.0`。

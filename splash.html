@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AFTER SPACE</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "PMingLiU", "MingLiU", "新細明體", serif;
+        background: transparent;
+      }
+      .shell {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at 50% 32%, rgba(123, 223, 255, 0.3), transparent 28%),
+          linear-gradient(180deg, rgba(6, 17, 30, 0.92), rgba(5, 12, 22, 0.98));
+        border-radius: 28px;
+        color: white;
+        overflow: hidden;
+      }
+      .card {
+        position: relative;
+        text-align: center;
+      }
+      .ring {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 18px;
+        border-radius: 999px;
+        border: 2px solid rgba(180, 239, 255, 0.4);
+        animation: spin 7s linear infinite;
+      }
+      .core {
+        position: absolute;
+        left: 50%;
+        top: 15px;
+        width: 66px;
+        height: 66px;
+        transform: translateX(-50%);
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, #cbfbff, #4ec2ff 55%, #163f78 100%);
+        box-shadow: 0 0 28px rgba(123, 223, 255, 0.4);
+      }
+      h1 {
+        margin: 0;
+        font-size: 2.2rem;
+        letter-spacing: 0.12em;
+      }
+      p {
+        margin: 10px 0 0;
+        color: #d8ebfb;
+        letter-spacing: 0.06em;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="card">
+        <div class="ring"></div>
+        <div class="core"></div>
+        <h1>AFTER SPACE</h1>
+        <p>正在啟動星際生存世界</p>
+      </div>
+    </div>
+  </body>
+</html>

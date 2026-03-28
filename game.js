@@ -1,4 +1,4 @@
-import * as THREE from "./node_modules/three/build/three.module.js";
+﻿import * as THREE from "./node_modules/three/build/three.module.js";
 
 const K={acc:"after-space-account",set:"after-space-settings",lang:"after-space-language",world:"after-space-world"};
 const CFG={r:180,load:32,step:8,sea:2,ph:1.8,pr:0.34,walk:6.3,sprint:9,jump:8.5,g:24,reach:7,mine:1,day:240,hp:300,save:6};
@@ -83,3 +83,4 @@ document.addEventListener("keyup",e=>keys.delete(e.code));
 addEventListener("mousedown",e=>{if(!S.playing)return;if(document.pointerLockElement!==dom.canvas){dom.canvas.requestPointerLock();audioUI();return}audioUI();if(e.button===0)S.left=true;if(e.button===2&&!S.sword)place()});
 addEventListener("mouseup",e=>{if(e.button===0){S.left=false;S.mineKey=null;S.mineProg=0}});
 addEventListener("contextmenu",e=>e.preventDefault());addEventListener("beforeunload",()=>save());loop();
+
