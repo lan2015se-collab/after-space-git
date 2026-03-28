@@ -3,12 +3,12 @@ const RELEASES = {
   downloads: {
     windows: {
       version: "1.4.0",
-      path: "https://github.com/lan2015se-collab/after-space-git/releases/latest/download/AFTER%20SPACE%20Setup%201.4.0.exe"
+      path: "https://github.com/lan2015se-collab/after-space-git/releases/latest/download/AFTER.SPACE.Setup.1.4.0.exe"
     },
     android: {
       available: true,
       version: "1.4.0",
-      path: "https://github.com/lan2015se-collab/after-space-git/releases/latest/download/AFTER%20SPACE%20Mobile%201.4.0-signed.apk"
+      path: "https://github.com/lan2015se-collab/after-space-git/releases/latest/download/app-release.apk"
     }
   }
 };
@@ -22,16 +22,21 @@ function detectDevice() {
   return "desktop";
 }
 
+function setLink(selector, href, text) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  el.href = href;
+  el.textContent = text;
+}
+
 function fillDownloadUI(data) {
   const device = detectDevice();
   const windows = data.downloads.windows;
   const android = data.downloads.android;
 
   document.querySelector("#hero-version").textContent = data.latestVersion;
-  document.querySelector("#windows-link").href = windows.path;
-  document.querySelector("#windows-link").textContent = `下載 Windows EXE ${windows.version}`;
-  document.querySelector("#android-link").href = android.path;
-  document.querySelector("#android-link").textContent = `下載 Android APK ${android.version}`;
+  setLink("#windows-link", windows.path, `立即下載 Windows EXE ${windows.version}`);
+  setLink("#android-link", android.path, `立即下載 Android APK ${android.version}`);
 
   const heroDownload = document.querySelector("#hero-download");
   const heroCopy = document.querySelector("#device-copy");
@@ -41,37 +46,37 @@ function fillDownloadUI(data) {
   const note = document.querySelector("#download-note");
 
   if (device === "android") {
-    heroCopy.textContent = "目前偵測到 Android 裝置，已優先提供正式簽名 APK。";
+    heroCopy.textContent = "已偵測到 Android 裝置，建議直接安裝手機版 APK。";
     heroDownload.href = android.path;
-    heroDownload.textContent = `下載 Android APK ${android.version}`;
+    heroDownload.textContent = `立即下載 Android APK ${android.version}`;
     title.textContent = "Android 搶先體驗";
-    description.textContent = "下載後即可在 Android 裝置安裝，手機版會以橫向畫面與滑動操作遊玩。";
+    description.textContent = "這是橫向畫面的手機版本，已加入觸控滑動移動、第三人稱視角與手機專用效能模式。";
     button.href = android.path;
     button.textContent = `下載 Android APK ${android.version}`;
-    note.textContent = "若系統阻擋安裝，請允許安裝未知來源應用程式。";
+    note.textContent = "若系統提醒未知來源安裝，請先在 Android 設定中允許安裝。";
     return;
   }
 
   if (device === "ios") {
-    heroCopy.textContent = "目前偵測到 iPhone 或 iPad，現階段建議改用 Windows 版。";
+    heroCopy.textContent = "已偵測到 iPhone 或 iPad，目前建議先使用 Windows 版搶先體驗。";
     heroDownload.href = windows.path;
-    heroDownload.textContent = `改下載 Windows EXE ${windows.version}`;
+    heroDownload.textContent = `查看 Windows EXE ${windows.version}`;
     title.textContent = "iOS 裝置說明";
-    description.textContent = "目前尚未提供 iOS 安裝版，建議先使用 Windows 版本。";
+    description.textContent = "目前尚未提供 iOS 安裝包，手機版優先支援 Android。你仍可在 Windows 電腦安裝體驗。";
     button.href = windows.path;
     button.textContent = `下載 Windows EXE ${windows.version}`;
     note.textContent = "iOS 版本仍在規劃中。";
     return;
   }
 
-  heroCopy.textContent = "目前偵測到桌面裝置，已優先提供 Windows 安裝程式。";
+  heroCopy.textContent = "已偵測到桌面裝置，推薦下載 Windows 安裝版開始體驗。";
   heroDownload.href = windows.path;
-  heroDownload.textContent = `下載 Windows EXE ${windows.version}`;
+  heroDownload.textContent = `立即下載 Windows EXE ${windows.version}`;
   title.textContent = "Windows 搶先體驗";
-  description.textContent = "下載後即可安裝進入 3D 方塊世界，支援第一與第三人稱切換。";
+  description.textContent = "下載最新官方安裝程式，進入超大型方塊世界、生存探索與建造系統。";
   button.href = windows.path;
   button.textContent = `下載 Windows EXE ${windows.version}`;
-  note.textContent = "Android 裝置開啟網站時會自動改為推薦簽名 APK。";
+  note.textContent = "如果你使用 Android 手機，網站也會自動顯示 APK 下載入口。";
 }
 
 fillDownloadUI(RELEASES);
